@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>פירושי הזוהר והקבלה - מאגר מאמרים ופתרונות</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #4a6583;
+            --accent: #8b5a2b;
+            --accent2: #27a59c;
+            --accent3: #9c27b0;
+            --light: #f8f5f0;
+            --dark: #1a2530;
+            --success: #27ae60;
+            --warning: #e67e22;
+            --text: #333333;
+            --text-light: #666666;
+            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Rubik', sans-serif;
+            background-color: var(--light);
+            color: var(--text);
+            line-height: 1.7;
+            direction: rtl;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .logo {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            position: relative;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            font-weight: 300;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Navigation */
+        nav {
+            background-color: var(--primary);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .nav-item {
+            color: white;
+            text-decoration: none;
+            padding: 0.7rem 1.8rem;
+            margin: 0 0.3rem;
+            border-radius: 30px;
+            transition: var(--transition);
+            font-weight: 500;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .nav-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+            border-radius: 30px;
+        }
+        
+        .nav-item:hover::before, .nav-item.active::before {
+            width: 100%;
+        }
+        
+        .nav-item:hover, .nav-item.active {
+            color: white;
+        }
+        
+        /* Search Section */
+        .search-section {
+            background-color: white;
+            padding: 2.5rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .search-box {
+            display: flex;
+            box-shadow: var(--shadow);
+            border-radius: 50px;
+            overflow: hidden;
+            border: 2px solid transparent;
+            transition: var(--transition);
+        }
+        
+        .search-box:focus-within {
+            border-color: var(--secondary);
+        }
+        
+        .search-input {
+            flex: 1;
+            padding: 1.2rem 1.8rem;
+            border: none;
+            font-size: 1.1rem;
+            font-family: 'Rubik', sans-serif;
+            background-color: #f9f9f9;
+        }
+        
+        .search-input:focus {
+            outline: none;
+        }
+        
+        .search-button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 0 2rem;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1.1rem;
+        }
+        
+        .search-button:hover {
+            background-color: var(--primary);
+        }
+        
+        /* Quick Actions */
+        .quick-actions {
+            padding: 2rem 0;
+            background-color: rgba(74, 101, 131, 0.05);
+        }
+        
+        .actions-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .action-btn {
+            background: white;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+        }
+        
+        .action-btn i {
+            margin-left: 0.5rem;
+        }
+        
+        .action-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.12);
+        }
+        
+        /* Current Parsha Section */
+        .current-parsha {
+            padding: 2.5rem 0;
+            background: linear-gradient(135deg, rgba(139, 90, 43, 0.1) 0%, rgba(74, 101, 131, 0.1) 100%);
+            border-top: 1px solid rgba(139, 90, 43, 0.2);
+            border-bottom: 1px solid rgba(139, 90, 43, 0.2);
+        }
+        
+        .parsha-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .parsha-info {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .parsha-title {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .parsha-subtitle {
+            font-size: 1.2rem;
+            color: var(--accent);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        .parsha-desc {
+            color: var(--text);
+            margin-bottom: 1.5rem;
+        }
+        
+        .parsha-stats {
+            display: flex;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+        
+        .parsha-stat {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .parsha-stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+        
+        .parsha-stat-label {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-top: 0.3rem;
+        }
+        
+        .parsha-image {
+            flex: 1;
+            min-width: 300px;
+            height: 200px;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--secondary) 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .parsha-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        /* Categories */
+        .categories {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--primary);
+            font-size: 2.2rem;
+            position: relative;
+            font-weight: 600;
+        }
+        
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+            margin: 0.8rem auto;
+            border-radius: 2px;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .category-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-icon {
+            height: 140px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .category-icon::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        .category-content {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .category-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .category-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        
+        .category-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+        
+        .category-link i {
+            margin-right: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .category-link:hover {
+            color: var(--accent);
+        }
+        
+        .category-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        /* Articles Section */
+        .articles {
+            padding: 4rem 0;
+            background: linear-gradient(to bottom, #f0ede6 0%, #f8f5f0 100%);
+        }
+        
+        .articles-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .articles-filter {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 0.9rem;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background-color: var(--secondary);
+            color: white;
+            border-color: var(--secondary);
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .article-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .article-image {
+            height: 180px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .article-category {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .article-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+            color: var(--primary);
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        .article-excerpt {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .article-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: auto;
+        }
+        
+        .article-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            transition: var(--transition);
+        }
+        
+        .article-link i {
+            margin-right: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .article-link:hover {
+            color: var(--accent);
+        }
+        
+        .article-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        /* Problems & Solutions */
+        .problems {
+            padding: 4rem 0;
+            background-color: white;
+        }
+        
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .problem-card {
+            background: linear-gradient(135deg, #f8f5f0 0%, #e8e2d5 100%);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(139, 90, 43, 0.1);
+            position: relative;
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .problem-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent), var(--secondary));
+        }
+        
+        .problem-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .problem-title {
+            color: var(--primary);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+        
+        .problem-title i {
+            margin-left: 0.8rem;
+            color: var(--warning);
+            background-color: rgba(230, 126, 34, 0.1);
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+        
+        .problem-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .solutions-list {
+            list-style-type: none;
+            margin-top: 1rem;
+        }
+        
+        .solutions-list li {
+            margin-bottom: 0.8rem;
+            padding-right: 1.5rem;
+            position: relative;
+        }
+        
+        .solutions-list li:before {
+            content: '✓';
+            color: var(--success);
+            font-weight: bold;
+            position: absolute;
+            right: 0;
+        }
+        
+        .problem-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+            transition: var(--transition);
+        }
+        
+        .problem-link i {
+            margin-right: 0.5rem;
+            transition: var(--transition);
+        }
+        
+        .problem-link:hover {
+            color: var(--accent);
+        }
+        
+        .problem-link:hover i {
+            transform: translateX(-5px);
+        }
+        
+        /* Books Section */
+        .books {
+            padding: 4rem 0;
+            background-color: rgba(156, 39, 176, 0.05);
+        }
+        
+        .books-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .book-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .book-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--accent3) 0%, #7b1fa2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .book-icon {
+            font-size: 2rem;
+            margin-left: 1rem;
+        }
+        
+        .book-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .book-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .book-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .book-authors {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent3);
+        }
+        
+        /* Maamarim Section */
+        .maamarim {
+            padding: 4rem 0;
+            background-color: rgba(39, 165, 156, 0.05);
+        }
+        
+        .maamarim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .maamar-card {
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .maamar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12);
+        }
+        
+        .maamar-header {
+            padding: 1.5rem;
+            background: linear-gradient(135deg, var(--accent2) 0%, #1a7c74 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .maamar-icon {
+            font-size: 2rem;
+            margin-left: 1rem;
+        }
+        
+        .maamar-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+        }
+        
+        .maamar-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .maamar-desc {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .maamar-types {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            color: var(--accent2);
+        }
+        
+        /* Ask Question Section */
+        .ask-question {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            text-align: center;
+        }
+        
+        .ask-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .ask-desc {
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.9;
+        }
+        
+        .ask-btn {
+            background-color: white;
+            color: var(--secondary);
+            border: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .ask-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--dark) 0%, var(--primary) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.8rem;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 50px;
+            height: 3px;
+            background-color: var(--accent);
+        }
+        
+        .footer-links {
+            list-style-type: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-links a i {
+            margin-left: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-top: 2rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .categories-grid, .articles-grid, .problems-grid, .books-grid, .maamarim-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .articles-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .nav-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .nav-item {
+                margin: 0.3rem 0;
+                width: 90%;
+                text-align: center;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .logo {
+                font-size: 2.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .actions-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .action-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .parsha-container {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .parsha-stats {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">זוהר הקודש</div>
+            <div class="subtitle">מאגר מאמרים ופתרונות לפי הזוהר והקבלה לכל תחומי החיים</div>
+        </div>
+    </header>
+    
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="nav-item active"><i class="fas fa-home"></i> דף הבית</a>
+            <a href="#" class="nav-item"><i class="fas fa-book-open"></i> מאגר המאמרים</a>
+            <a href="#" class="nav-item"><i class="fas fa-tools"></i> פתרונות לבעיות</a>
+            <a href="#" class="nav-item"><i class="fas fa-torah"></i> פירושים לפי פרשה</a>
+            <a href="#" class="nav-item"><i class="fas fa-users"></i> שאלות לרב</a>
+            <a href="#" class="nav-item"><i class="fas fa-envelope"></i> צור קשר</a>
+        </div>
+    </nav>
+    
+    <section class="search-section">
+        <div class="container search-container">
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="חפש נושא, בעיה או מילה...">
+                <button class="search-button">
+                    <i class="fas fa-search"></i> חפש
+                </button>
+            </div>
+        </div>
+    </section>
+    
+    <section class="quick-actions">
+        <div class="container actions-container">
+            <button class="action-btn"><i class="fas fa-question-circle"></i> שאל שאלה</button>
+            <button class="action-btn"><i class="fas fa-book"></i> מאמרים חדשים</button>
+            <button class="action-btn"><i class="fas fa-star"></i> מומלצים</button>
+            <button class="action-btn"><i class="fas fa-random"></i> פתרונות אקראיים</button>
+            <button class="action-btn"><i class="fas fa-download"></i> חוברות להורדה</button>
+        </div>
+    </section>
+    
+    <!-- פרשת השבוע הנוכחית -->
+    <section class="current-parsha">
+        <div class="container parsha-container">
+            <div class="parsha-info">
+                <h2 class="parsha-title" id="current-parsha-name">פרשת נח</h2>
+                <div class="parsha-subtitle" id="parsha-subtitle">פרשת השבוע | שנת תשפ"ג</div>
+                <p class="parsha-desc" id="parsha-description">פרשת נח מתארת את סיפור המבול, תיבת נח, והברית שכרת ה' עם האנושות. על פי הזוהר, פרשה זו מכילה סודות עמוקים על תיקון העולם והנפש.</p>
+                <div class="parsha-stats">
+                    <div class="parsha-stat">
+                        <div class="parsha-stat-value" id="days-to-next">5</div>
+                        <div class="parsha-stat-label">ימים לפרשה הבאה</div>
+                    </div>
+                    <div class="parsha-stat">
+                        <div class="parsha-stat-value" id="parsha-articles">18</div>
+                        <div class="parsha-stat-label">פירושים על הפרשה</div>
+                    </div>
+                    <div class="parsha-stat">
+                        <div class="parsha-stat-value" id="parsha-solutions">7</div>
+                        <div class="parsha-stat-label">פתרונות מהפרשה</div>
+                    </div>
+                </div>
+            </div>
+            <div class="parsha-image">
+                <i class="fas fa-torah"></i>
+            </div>
+        </div>
+    </section>
+    
+    <section class="categories">
+        <div class="container">
+            <h2 class="section-title">קטגוריות נושאים</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="fertility">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #8b5a2b 0%, #b3743c 100%);">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">פריון והורות</h3>
+                        <p class="category-desc">פירושים מהזוהר והקבלה על פריון, הריון, לידה וגידול ילדים עם פתרונות מעשיים לקשיים</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 24 מאמרים</span>
+                            <span><i class="fas fa-tasks"></i> 15 פתרונות</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הפירושים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="finance">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">כלכלה ושפע</h3>
+                        <p class="category-desc">הדרכה מהזוהר להשגת שפע כלכלי וניהול נכון של הכסף עם תיקונים רוחניים</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 18 מאמרים</span>
+                            <span><i class="fas fa-tasks"></i> 12 פתרונות</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הפירושים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="parsha">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #4a6583 0%, #2c3e50 100%);">
+                        <i class="fas fa-torah"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">פירושים לפי פרשה</h3>
+                        <p class="category-desc">פירושי הזוהר והקבלה על כל פרשות השבוע, עם הדרכה מעשית לכל שבוע</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 54 פרשות</span>
+                            <span><i class="fas fa-tasks"></i> 300+ פירושים</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הפרשות <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="books">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #9c27b0 0%, #7b1fa2 100%);">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">פירושים לפי ספרים</h3>
+                        <p class="category-desc">פירושי הזוהר לפי תלמוד בבלי, כתבי האר"י, רמח"ל, בעל שם טוב ועוד</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 25 ספרים</span>
+                            <span><i class="fas fa-tasks"></i> 500+ פירושים</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הספרים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="family">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #e67e22 0%, #d35400 100%);">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">משפחה וזוגיות</h3>
+                        <p class="category-desc">פירושים על חיי משפחה, נישואין, וחינוך ילדים לאור הקבלה עם הדרכה לשלום בית</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 32 מאמרים</span>
+                            <span><i class="fas fa-tasks"></i> 22 פתרונות</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הפירושים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="health">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">בריאות ורפואה</h3>
+                        <p class="category-desc">הסתכלות קבלית על בריאות הגוף והנפש ורפואה שלמה עם תיקונים למחלות</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 28 מאמרים</span>
+                            <span><i class="fas fa-tasks"></i> 19 פתרונות</span>
+                        </div>
+                        <a href="#" class="category-link">לכל הפירושים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="category-card" data-category="maamarim">
+                    <div class="category-icon" style="background: linear-gradient(135deg, #27a59c 0%, #1a7c74 100%);">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="category-content">
+                        <h3 class="category-title">פירושים למאמרים</h3>
+                        <p class="category-desc">פירושי הזוהר על מאמרים שונים - מאמר, שיחה, אגרת קודש, מכתב ועוד</p>
+                        <div class="category-stats">
+                            <span><i class="fas fa-file-alt"></i> 100+ מאמרים</span>
+                            <span><i class="fas fa-tasks"></i> 400+ פירושים</span>
+                        </div>
+                        <a href="#" class="category-link">לכל המאמרים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="articles">
+        <div class="container">
+            <div class="articles-header">
+                <h2 class="section-title" style="margin-bottom: 0;">מאמרים אחרונים</h2>
+                <div class="articles-filter">
+                    <button class="filter-btn active">הכל</button>
+                    <button class="filter-btn">פריון</button>
+                    <button class="filter-btn">כלכלה</button>
+                    <button class="filter-btn">משפחה</button>
+                    <button class="filter-btn">בריאות</button>
+                    <button class="filter-btn">פרשת שבוע</button>
+                </div>
+            </div>
+            
+            <div class="articles-grid">
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #8b5a2b 0%, #b3743c 100%);">
+                        <div class="article-category" style="background-color: #8b5a2b;">פריון</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">סוד הפריון על פי האר"י הקדוש</h3>
+                        <p class="article-excerpt">גילוי הסודות העמוקים של הפריון לאור תורת האר"י, עם הדרכה מעשית לתיקון הנשמה לקראת הורות.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 15 במאי 2023</span>
+                            <span><i class="far fa-clock"></i> 8 דק' קריאה</span>
+                        </div>
+                        <a href="#" class="article-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #4a6583 0%, #2c3e50 100%);">
+                        <div class="article-category" style="background-color: #4a6583;">פרשת שבוע</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">פרשת נח - סוד התיבה על פי הזוהר</h3>
+                        <p class="article-excerpt">פירוש עמוק לפרשת נח לאור הזוהר הקדוש, עם הדרכה מעשית לבניית 'תיבה' פנימית להגנה רוחנית.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 12 במאי 2023</span>
+                            <span><i class="far fa-clock"></i> 10 דק' קריאה</span>
+                        </div>
+                        <a href="#" class="article-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="article-card">
+                    <div class="article-image" style="background: linear-gradient(135deg, #27ae60 0%, #2ecc71 100%);">
+                        <div class="article-category" style="background-color: #27ae60;">כלכלה</div>
+                    </div>
+                    <div class="article-content">
+                        <h3 class="article-title">שערי השפע - פתיחת צינורות הברכה</h3>
+                        <p class="article-excerpt">כיצד לפתוח את צינורות השפע לפי סודות הזוהר, עם תרגילים מעשיים להגברת השפע הכלכלי.</p>
+                        <div class="article-meta">
+                            <span><i class="far fa-calendar"></i> 2 במאי 2023</span>
+                            <span><i class="far fa-clock"></i> 12 דק' קריאה</span>
+                        </div>
+                        <a href="#" class="article-link">קרא עוד <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- פירושים לפי ספרים -->
+    <section class="books">
+        <div class="container">
+            <h2 class="section-title">פירושים לפי ספרים</h2>
+            <div class="books-grid">
+                <div class="book-card">
+                    <div class="book-header">
+                        <div class="book-icon"><i class="fas fa-scroll"></i></div>
+                        <div class="book-title">תלמוד בבלי</div>
+                    </div>
+                    <div class="book-content">
+                        <p class="book-desc">פירושי הזוהר והקבלה על סוגיות התלמוד הבבלי, עם הקבלות עמוקות בין הנגלה והנסתר.</p>
+                        <div class="book-authors">
+                            <strong>פירושים על:</strong> מסכת ברכות, שבת, פסחים, יבמות ועוד
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-header">
+                        <div class="book-icon"><i class="fas fa-star-of-david"></i></div>
+                        <div class="book-title">כתבי האר"י</div>
+                    </div>
+                    <div class="book-content">
+                        <p class="book-desc">ביאורים על תורת האר"י הקדוש לאור הזוהר, עם הדרכה מעשית בתיקונים וכוונות.</p>
+                        <div class="book-authors">
+                            <strong>כתבים:</strong> עץ חיים, שערי קדושה, ליקוטי תורה, פרוש הסולם
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="book-card">
+                    <div class="book-header">
+                        <div class="book-icon"><i class="fas fa-hands-praying"></i></div>
+                        <div class="book-title">כתבי רמח"ל</div>
+                    </div>
+                    <div class="book-content">
+                        <p class="book-desc">פירושים על ספרי רמח"ל לאור הזוהר, עם דגש על עבודת ה' ותיקון המידות.</p>
+                        <div class="book-authors">
+                            <strong>כתבים:</strong> מסילת ישרים, דרך ה', דעת תבונות, קל"ח פתחי חכמה
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- פירושים למאמרים -->
+    <section class="maamarim">
+        <div class="container">
+            <h2 class="section-title">פירושים למאמרים</h2>
+            <div class="maamarim-grid">
+                <div class="maamar-card">
+                    <div class="maamar-header">
+                        <div class="maamar-icon"><i class="fas fa-file-alt"></i></div>
+                        <div class="maamar-title">מאמרים כלליים</div>
+                    </div>
+                    <div class="maamar-content">
+                        <p class="maamar-desc">פירושי הזוהר על מאמרים שונים העוסקים בענייני אמונה, השגחה, גאולה ועבודת ה'.</p>
+                        <div class="maamar-types">
+                            <strong>סוגים:</strong> מאמרי חסידות, דרושים, ביאורים על פרשיות
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="maamar-card">
+                    <div class="maamar-header">
+                        <div class="maamar-icon"><i class="fas fa-comments"></i></div>
+                        <div class="maamar-title">שיחות קודש</div>
+                    </div>
+                    <div class="maamar-content">
+                        <p class="maamar-desc">ביאורים על שיחות קודש של גדולי ישראל לאור הזוהר, עם הדרכה מעשית לחיי היום-יום.</p>
+                        <div class="maamar-types">
+                            <strong>סוגים:</strong> שיחות מוסר, הדרכות בעבודת ה', סיפורים עם מוסר השכל
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+                
+                <div class="maamar-card">
+                    <div class="maamar-header">
+                        <div class="maamar-icon"><i class="fas fa-envelope"></i></div>
+                        <div class="maamar-title">אגרות קודש</div>
+                    </div>
+                    <div class="maamar-content">
+                        <p class="maamar-desc">פירושים על אגרות קודש של צדיקים לאור הזוהר, עם תובנות לחיזוק האמונה והביטחון.</p>
+                        <div class="maamar-types">
+                            <strong>סוגים:</strong> מכתבי הדרכה, תשובות לשאלות, אגרות בענייני השעה
+                        </div>
+                        <a href="#" class="category-link">לפירושים המלאים <i class="fas fa-arrow-left"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="problems">
+        <div class="container">
+            <h2 class="section-title">פתרונות לבעיות נפוצות</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <h3 class="problem-title"><i class="fas fa-exclamation-triangle"></i> קשיים בפריון</h3>
+                    <p class="problem-desc">פתרונות מעשיים לפי הזוהר והקבלה עבור זוגות המתמודדים עם קשיים בפריון והבאת ילדים לעולם.</p>
+                    <ul class="solutions-list">
+                        <li>תיקון הברית וקדושת המחשבה</li>
+                        <li>תפילה בכוונה בראש חודש</li>
+                        <li>לימוד קבוע בספר הזוהר</li>
+                    </ul>
+                    <a href="#" class="problem-link">לכל הפתרונות <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <div class="problem-card">
+                    <h3 class="problem-title"><i class="fas fa-exclamation-triangle"></i> קשיים כלכליים</h3>
+                    <p class="problem-desc">דרכים לפתיחת צינורות השפע והתמודדות עם קשיים כלכליים לפי סודות הקבלה.</p>
+                    <ul class="solutions-list">
+                        <li>נדיבות ונתינת צדקה</li>
+                        <li>כוונה בתפילה על הפרנסה</li>
+                        <li>שמירה על יושר במסחר</li>
+                    </ul>
+                    <a href="#" class="problem-link">לכל הפתרונות <i class="fas fa-arrow-left"></i></a>
+                </div>
+                
+                <div class="problem-card">
+                    <h3 class="problem-title"><i class="fas fa-exclamation-triangle"></i> חוסר שלום בית</h3>
+                    <p class="problem-desc">פתרונות לבעיות בזוגיות וחוסר שלום בית לפי ההדרכה הרוחנית של הזוהר.</p>
+                    <ul class="solutions-list">
+                        <li>לימוד זוגי בספר הזוהר</li>
+                        <li>הקפדה על טהרת המשפחה</li>
+                        <li>תפילה משותפת</li>
+                    </ul>
+                    <a href="#" class="problem-link">לכל הפתרונות <i class="fas fa-arrow-left"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section class="ask-question">
+        <div class="container">
+            <h2 class="ask-title">יש לך שאלה?</h2>
+            <p class="ask-desc">שלח לנו את שאלתך וקבל מענה מפי תורת הזוהר והקבלה. הצוות שלנו ישמח לעזור לך למצוא את הדרך הרוחנית המתאימה עבורך.</p>
+            <button class="ask-btn">שלח שאלה <i class="fas fa-paper-plane"></i></button>
+        </div>
+    </section>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>זוהר הקודש</h3>
+                    <p>אתר פירושי הזוהר והקבלה המציע הדרכה רוחנית ופתרונות מעשיים לכל תחומי החיים לפי תורת הנסתר.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>קישורים שימושיים</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> דף הבית</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> מאגר המאמרים</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> פתרונות לבעיות</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> שאלות לרב</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> צור קשר</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3">תוכן נוסף</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> פרשת השבוע</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> פירושים לפי ספרים</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> פירושים למאמרים</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> סדרות לימוד</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> אירועים וקבלות פנים</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3">צור קשר</h3>
+                    <ul class="footer-links">
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> יצירת קשר</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> שאל את הרב</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> הצטרפות לניוזלטר</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> תנאי שימוש</a></li>
+                        <li><a href="#"><i class="fas fa-arrow-left"></i> פרטיות</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                © כל הזכויות שמורות - אתר פירושי הזוהר והקבלה | נבנה באהבה ובאמונה
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // מערכת זיהוי פרשת השבוע
+        document.addEventListener('DOMContentLoaded', function() {
+            // מערכת זיהוי פרשת השבוע (בפועל יש להשתמש בספרייה מתאימה לחישוב מדויק)
+            const parshiot = [
+                { name: "בראשית", hebrew: "בראשית", desc: "פרשת בראשית מתארת את בריאת העולם בששה ימים, בריאת אדם וחוה, וחטא עץ הדעת." },
+                { name: "נח", hebrew: "נח", desc: "פרשת נח מתארת את סיפור המבול, תיבת נח, והברית שכרת ה' עם האנושות." },
+                { name: "לך לך", hebrew: "לך לך", desc: "פרשת לך לך מתארת את ציווי ה' לאברהם לעזוב את ארצו, הברית בין הבתרים, ולידת ישמעאל." },
+                { name: "וירא", hebrew: "וירא", desc: "פרשת וירא מתארת את ביקור המלאכים אצל אברהם, הפיכת סדום ועמורה, ועקדת יצחק." },
+                { name: "חיי שרה", hebrew: "חיי שרה", desc: "פרשת חיי שרה מתארת את קנית מערת המכפלה, חיפוש אישה ליצחק, ונישואי יצחק ורבקה." }
+            ];
+            
+            // בחירת פרשה אקראית להדגמה (בפועל יש לחשב לפי תאריך עברי)
+            const currentParshaIndex = Math.floor(Math.random() * parshiot.length);
+            const currentParsha = parshiot[currentParshaIndex];
+            
+            // עדכון פרשת השבוע הנוכחית
+            document.getElementById('current-parsha-name').textContent = `פרשת ${currentParsha.hebrew}`;
+            document.getElementById('parsha-description').textContent = currentParsha.desc;
+            
+            // חישוב ימים עד הפרשה הבאה (הדגמה)
+            const daysToNext = Math.floor(Math.random() * 7) + 1;
+            document.getElementById('days-to-next').textContent = daysToNext;
+            
+            // עדכון סטטיסטיקות (מספר מאמרים ופתרונות על הפרשה)
+            const parshaArticles = Math.floor(Math.random() * 10) + 15;
+            const parshaSolutions = Math.floor(Math.random() * 5) + 5;
+            document.getElementById('parsha-articles').textContent = parshaArticles;
+            document.getElementById('parsha-solutions').textContent = parshaSolutions;
+            
+            // הוספת אירועי לחיצה לכרטיסי הקטגוריות
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    const categoryNames = {
+                        'fertility': 'פריון והורות',
+                        'finance': 'כלכלה ושפע',
+                        'parsha': 'פירושים לפי פרשה',
+                        'books': 'פירושים לפי ספרים',
+                        'family': 'משפחה וזוגיות',
+                        'health': 'בריאות ורפואה',
+                        'maamarim': 'פירושים למאמרים'
+                    };
+                    
+                    window.location.href = `#${category}`;
+                    alert(`נבחרה הקטגוריה: ${categoryNames[category]}. בדף מלא תוכל לנווט לפירושים מעמיקים בנושא זה.`);
+                });
+            });
+            
+            // הוספת פונקציונליות לחיפוש
+            const searchButton = document.querySelector('.search-button');
+            const searchInput = document.querySelector('.search-input');
+            
+            searchButton.addEventListener('click', function() {
+                performSearch();
+            });
+            
+            searchInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
+            
+            function performSearch() {
+                const searchTerm = searchInput.value.trim();
+                if (searchTerm) {
+                    // הדמיה של תוצאות חיפוש
+                    const results = [
+                        "פירוש על פריון מהזוהר",
+                        "שפע כלכלי לאור הקבלה",
+                        "שלום בית על פי הזוהר",
+                        "רפואה שלמה בסוד האותיות",
+                        "פרשת נח על פי הזוהר",
+                        "פירוש על תלמוד בבלי מהקבלה",
+                        "מאמרי הבעל שם טוב לאור הזוהר"
+                    ].filter(item => item.includes(searchTerm));
+                    
+                    if (results.length > 0) {
+                        alert(`נמצאו ${results.length} תוצאות עבור: "${searchTerm}".\n\n${results.join('\n')}`);
+                    } else {
+                        alert(`לא נמצאו תוצאות עבור: "${searchTerm}". נסה מונח חיפוש אחר.`);
+                    }
+                } else {
+                    alert('נא להזין מונח לחיפוש');
+                }
+            }
+            
+            // פילטור מאמרים
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const filter = this.textContent;
+                    alert(`סוננו המאמרים לפי: ${filter}. בדף מלא יוצגו רק המאמרים הרלוונטיים.`);
+                });
+            });
+            
+            // כפתור שאל שאלה
+            const askBtn = document.querySelector('.ask-btn');
+            askBtn.addEventListener('click', function() {
+                const question = prompt('מהי שאלתך? נשמח לעזור לפי תורת הזוהר והקבלה:');
+                if (question) {
+                    alert(`תודה על שאלתך: "${question}". הצוות שלנו יבדוק את השאלה וישיב בהקדם.`);
+                }
+            });
+            
+            // כפתורי פעולה מהירה
+            const actionBtns = document.querySelectorAll('.action-btn');
+            actionBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const action = this.textContent.trim();
+                    alert(`נבחרה פעולה: ${action}. בדף מלא תועבר לעמוד המתאים.`);
+                });
+            });
+            
+            // אנימציה עדינה לכרטיסים בעת גלילה
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver(function(entries) {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // הוספת אנימציה לכרטיסים
+            const cards = document.querySelectorAll('.category-card, .article-card, .problem-card, .book-card, .maamar-card');
+            cards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(card);
+            });
+            
+            // הדגשת פרשת השבוע הנוכחית
+            const parshaSection = document.querySelector('.current-parsha');
+            parshaSection.style.opacity = '0';
+            parshaSection.style.transform = 'translateY(20px)';
+            parshaSection.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            
+            setTimeout(() => {
+                parshaSection.style.opacity = '1';
+                parshaSection.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
