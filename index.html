@@ -1004,9 +1004,10 @@
     <section class="current-parsha">
         <div class="container parsha-container">
             <div class="parsha-info">
-                <h2 class="parsha-title" id="current-parsha-name">פרשת נח</h2>
-                <div class="parsha-subtitle" id="parsha-subtitle">פרשת השבוע | שנת תשפ"ג</div>
-                <p class="parsha-desc" id="parsha-description">פרשת נח מתארת את סיפור המבול, תיבת נח, והברית שכרת ה' עם האנושות. על פי הזוהר, פרשה זו מכילה סודות עמוקים על תיקון העולם והנפש.</p>
+                <h2 class="parsha-title" id="current-parsha-name">...</h2>
+                <div class="parsha-subtitle" id="parsha-subtitle">פרשת השבוע</div>
+                <p class="parsha-desc" id="parsha-description"></p>
+                <div class="kabbalah-today" id="kabbalah-today" style="margin:12px 0;line-height:1.7"></div>
                 <div class="parsha-stats">
                     <div class="parsha-stat">
                         <div class="parsha-stat-value" id="days-to-next">5</div>
@@ -1399,35 +1400,38 @@
         </div>
     </footer>
 
+    <script src="heb.js"></script>
+    <script src="parsha-data.js"></script>
     <script>
         // מערכת זיהוי פרשת השבוע
         document.addEventListener('DOMContentLoaded', function() {
-            // מערכת זיהוי פרשת השבוע (בפועל יש להשתמש בספרייה מתאימה לחישוב מדויק)
-            const parshiot = [
-                { name: "בראשית", hebrew: "בראשית", desc: "פרשת בראשית מתארת את בריאת העולם בששה ימים, בריאת אדם וחוה, וחטא עץ הדעת." },
-                { name: "נח", hebrew: "נח", desc: "פרשת נח מתארת את סיפור המבול, תיבת נח, והברית שכרת ה' עם האנושות." },
-                { name: "לך לך", hebrew: "לך לך", desc: "פרשת לך לך מתארת את ציווי ה' לאברהם לעזוב את ארצו, הברית בין הבתרים, ולידת ישמעאל." },
-                { name: "וירא", hebrew: "וירא", desc: "פרשת וירא מתארת את ביקור המלאכים אצל אברהם, הפיכת סדום ועמורה, ועקדת יצחק." },
-                { name: "חיי שרה", hebrew: "חיי שרה", desc: "פרשת חיי שרה מתארת את קנית מערת המכפלה, חיפוש אישה ליצחק, ונישואי יצחק ורבקה." }
-            ];
-            
-            // בחירת פרשה אקראית להדגמה (בפועל יש לחשב לפי תאריך עברי)
-            const currentParshaIndex = Math.floor(Math.random() * parshiot.length);
-            const currentParsha = parshiot[currentParshaIndex];
-            
-            // עדכון פרשת השבוע הנוכחית
-            document.getElementById('current-parsha-name').textContent = `פרשת ${currentParsha.hebrew}`;
-            document.getElementById('parsha-description').textContent = currentParsha.desc;
-            
-            // חישוב ימים עד הפרשה הבאה (הדגמה)
-            const daysToNext = Math.floor(Math.random() * 7) + 1;
-            document.getElementById('days-to-next').textContent = daysToNext;
-            
-            // עדכון סטטיסטיקות (מספר מאמרים ופתרונות על הפרשה)
-            const parshaArticles = Math.floor(Math.random() * 10) + 15;
-            const parshaSolutions = Math.floor(Math.random() * 5) + 5;
-            document.getElementById('parsha-articles').textContent = parshaArticles;
-            document.getElementById('parsha-solutions').textContent = parshaSolutions;
+            // the real portion of the week, computed from today's date (Israel schedule); refreshes by itself every day
+            function showParsha() {
+                const now = new Date(), day = HebCal.dayOf(now);
+                const cur = HebCal.parshaFor(day), h = HebCal.describe(day);
+                const info = (n) => (window.PARSHA_INFO || {})[n];
+                const names = cur.parts ? cur.parts.map(i => HebCal.PARSHIOT[i]) : [];
+                document.getElementById('current-parsha-name').textContent = cur.name ? `פרשת ${cur.name}` : 'שבת מועד';
+                document.getElementById('parsha-subtitle').textContent = `פרשת השבוע | ${h.text} ${h.year}`;
+                document.getElementById('parsha-description').textContent = names.length
+                    ? names.map(n => info(n) ? info(n).summary : '').join(' ') + ' על פי הזוהר, כל פרשה מכילה סודות עמוקים על תיקון העולם והנפש.'
+                    : 'השבת הזו חלה במועד, ולכן אין פרשה שבועית. קוראים בתורה את קריאת המועד.';
+                // days until Shabbat, today's Hebrew date, next portion
+                const toShabbat = cur.day - day;
+                document.getElementById('days-to-next').textContent = toShabbat === 0 ? 'היום' : toShabbat;
+                document.querySelector('#days-to-next + .parsha-stat-label').textContent = toShabbat === 0 ? 'שבת שלום' : 'ימים לשבת';
+                const nxt = HebCal.parshaFor(cur.day + 1);
+                document.getElementById('parsha-articles').textContent = nxt.name || 'שבת מועד';
+                document.querySelector('#parsha-articles + .parsha-stat-label').textContent = 'הפרשה הבאה';
+                document.getElementById('parsha-solutions').textContent = HebCal.numeral(h.d) + ' ' + HebCal.monthName(h.y, h.m);
+                document.querySelector('#parsha-solutions + .parsha-stat-label').textContent = 'התאריך העברי היום';
+                const kb = document.getElementById('kabbalah-today');
+                if (kb) kb.innerHTML = '<b>היום בקבלה:</b> ' + HebCal.kabbalahToday(day).map(l => `${l.b}${l.t ? ' · ' + l.t : ''}`).join(' | ');
+            }
+            showParsha();
+            let shownDay = HebCal.dayOf(new Date());
+            setInterval(() => { const n = HebCal.dayOf(new Date()); if (n !== shownDay) { shownDay = n; showParsha(); } }, 60000);
+            document.addEventListener('visibilitychange', () => { if (!document.hidden) { const n = HebCal.dayOf(new Date()); if (n !== shownDay) { shownDay = n; showParsha(); } } });
             
             // הוספת אירועי לחיצה לכרטיסי הקטגוריות
             const categoryCards = document.querySelectorAll('.category-card');
